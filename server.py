@@ -1,4 +1,3 @@
-from client import deserializer, serializer
 import socket
 from threading import Thread
 from sys import argv
