@@ -12,6 +12,14 @@ class GameStates(Enum):
     FINISHED = "finished"
 
 
+def serializer(**kwargs):
+    return pickle.dumps(kwargs)
+
+
+def deserializer(obj):
+    return pickle.loads(obj)
+
+
 class Server:
     def __init__(self, port, number_of_clients):
         self.port = int(port)
@@ -26,14 +34,6 @@ class Server:
         self.db_file = "sudoku_db.json"
         self.db_write()
 
-    @staticmethod
-    def serializer(**kwargs):
-        return pickle.dumps(kwargs)
-
-
-    @staticmethod
-    def deserializer(obj):
-        return pickle.loads(obj)
 
 
     def db_write(self):
